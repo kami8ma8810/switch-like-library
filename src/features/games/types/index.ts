@@ -1,0 +1,1 @@
+export type { Game, PlayStatus, Genre } from './Game'
