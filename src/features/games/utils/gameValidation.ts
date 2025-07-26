@@ -17,6 +17,18 @@ export function validateGame(
     errors.push('タイトルは必須です')
   }
 
+  if (!game.releaseDate) {
+    errors.push('発売日は必須です')
+  }
+
+  if (!game.developer || game.developer.trim() === '') {
+    errors.push('開発元は必須です')
+  }
+
+  if (!game.publisher || game.publisher.trim() === '') {
+    errors.push('発売元は必須です')
+  }
+
   if (!isValidRating(game.rating)) {
     errors.push('評価は1から5の間で入力してください')
   }
