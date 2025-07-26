@@ -62,11 +62,11 @@ export function FilterBar() {
   const activeFiltersCount = useAppSelector(selectActiveFiltersCount)
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow mb-6">
-      <div className="flex flex-col gap-4">
+    <div className="switch-card p-6 mb-8 animate-fade-in">
+      <div className="flex flex-col gap-6">
         {/* ステータスフィルター */}
         <div>
-          <h3 className="text-sm font-semibold text-gray-700 mb-2">
+          <h3 className="text-sm font-bold text-switch-dark mb-3">
             プレイ状況
           </h3>
           <div className="flex flex-wrap gap-2">
@@ -74,10 +74,10 @@ export function FilterBar() {
               <button
                 key={option.value}
                 onClick={() => dispatch(setStatusFilter(option.value))}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
                   statusFilter === option.value
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-switch-blue text-white shadow-switch transform scale-105'
+                    : 'bg-switch-gray-200 text-switch-gray-600 hover:bg-switch-gray-300'
                 }`}
               >
                 {option.label}
@@ -89,14 +89,14 @@ export function FilterBar() {
         {/* ジャンルとソート */}
         <div className="flex flex-wrap gap-4">
           <div className="flex-1 min-w-[200px]">
-            <label htmlFor="genre" className="block text-sm font-semibold text-gray-700 mb-2">
+            <label htmlFor="genre" className="block text-sm font-bold text-switch-dark mb-2">
               ジャンル
             </label>
             <select
               id="genre"
               value={genreFilter}
               onChange={(e) => dispatch(setGenreFilter(e.target.value as GenreFilterValue))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all bg-white"
             >
               {genreOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -108,14 +108,14 @@ export function FilterBar() {
 
           <div className="flex gap-2">
             <div>
-              <label htmlFor="sortBy" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="sortBy" className="block text-sm font-bold text-switch-dark mb-2">
                 並び順
               </label>
               <select
                 id="sortBy"
                 value={sortBy}
                 onChange={(e) => dispatch(setSortBy(e.target.value as SortBy))}
-                className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all bg-white"
               >
                 {sortOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -126,14 +126,14 @@ export function FilterBar() {
             </div>
 
             <div>
-              <label htmlFor="sortOrder" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="sortOrder" className="block text-sm font-bold text-switch-dark mb-2">
                 順序
               </label>
               <select
                 id="sortOrder"
                 value={sortOrder}
                 onChange={(e) => dispatch(setSortOrder(e.target.value as SortOrder))}
-                className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all bg-white"
               >
                 {sortOrderOptions.map((option) => (
                   <option key={option.value} value={option.value}>

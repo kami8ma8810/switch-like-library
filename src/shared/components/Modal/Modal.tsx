@@ -44,17 +44,17 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
 
       {/* モーダルコンテンツ */}
       <div
-        className="relative bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-hidden mx-4"
+        className="relative bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden mx-4 animate-slide-up"
         onClick={(e) => e.stopPropagation()}
       >
         {/* ヘッダー */}
-        <div className="flex items-center justify-between p-4 border-b">
+        <div className="flex items-center justify-between p-6 border-b border-switch-gray-200">
           {title && (
-            <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
+            <h2 className="text-2xl font-bold text-switch-dark">{title}</h2>
           )}
           <button
             onClick={onClose}
-            className="ml-auto p-1 rounded-lg hover:bg-gray-100 transition-colors"
+            className="ml-auto p-2 rounded-full hover:bg-switch-gray-100 transition-colors"
             aria-label="閉じる"
           >
             <svg
@@ -74,7 +74,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
         </div>
 
         {/* ボディ */}
-        <div className="p-4 overflow-y-auto max-h-[calc(90vh-8rem)]">
+        <div className="p-8 overflow-y-auto max-h-[calc(90vh-8rem)]">
           {children}
         </div>
       </div>

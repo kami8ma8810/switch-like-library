@@ -69,7 +69,7 @@ describe('FilterBar', () => {
     const playingButton = screen.getByText('プレイ中')
     await user.click(playingButton)
     
-    expect(playingButton).toHaveClass('bg-blue-600')
+    expect(playingButton).toHaveClass('bg-switch-blue')
   })
 
   it('ジャンルフィルターを変更できる', async () => {
@@ -122,7 +122,7 @@ describe('FilterBar', () => {
     await user.click(screen.getByText('リセット'))
     
     // すべてがデフォルトに戻る
-    expect(screen.getByText('すべて')).toHaveClass('bg-blue-600')
+    expect(screen.getByText('すべて')).toHaveClass('bg-switch-blue')
     expect(screen.getByRole('combobox', { name: 'ジャンル' })).toHaveValue('all')
   })
 })

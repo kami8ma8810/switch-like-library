@@ -48,11 +48,11 @@ describe('GameCard', () => {
     
     const completedGame = { ...mockGame, playStatus: 'completed' as const }
     rerender(<GameCard game={completedGame} />)
-    expect(screen.getByText('クリア済み')).toHaveClass('bg-blue-100')
+    expect(screen.getByText('クリア済み')).toHaveClass('bg-opacity-10')
     
     const notStartedGame = { ...mockGame, playStatus: 'not_started' as const }
     rerender(<GameCard game={notStartedGame} />)
-    expect(screen.getByText('未プレイ')).toHaveClass('bg-gray-100')
+    expect(screen.getByText('未プレイ')).toHaveClass('bg-switch-gray-200')
     
     const onHoldGame = { ...mockGame, playStatus: 'on_hold' as const }
     rerender(<GameCard game={onHoldGame} />)

@@ -9,8 +9,8 @@ interface GameCardProps {
 const playStatusConfig = {
   not_started: {
     label: '未プレイ',
-    bgColor: 'bg-gray-100',
-    textColor: 'text-gray-700',
+    bgColor: 'bg-switch-gray-200',
+    textColor: 'text-switch-gray-600',
   },
   playing: {
     label: 'プレイ中',
@@ -19,8 +19,8 @@ const playStatusConfig = {
   },
   completed: {
     label: 'クリア済み',
-    bgColor: 'bg-blue-100',
-    textColor: 'text-blue-700',
+    bgColor: 'bg-switch-blue bg-opacity-10',
+    textColor: 'text-switch-blue',
   },
   on_hold: {
     label: '中断中',
@@ -48,7 +48,7 @@ export function GameCard({ game, onClick }: GameCardProps) {
 
   return (
     <article
-      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
+      className="switch-card game-card overflow-hidden cursor-pointer animate-fade-in"
       onClick={() => onClick?.(game)}
       role="article"
     >
@@ -82,12 +82,12 @@ export function GameCard({ game, onClick }: GameCardProps) {
       </div>
 
       <div className="p-4">
-        <h3 className="font-bold text-lg mb-2 line-clamp-2">{game.title}</h3>
+        <h3 className="font-bold text-lg mb-2 line-clamp-2 text-switch-dark">{game.title}</h3>
 
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-sm text-gray-600">{genreLabels[game.genre]}</span>
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-sm text-switch-gray-500 font-medium">{genreLabels[game.genre]}</span>
           <span
-            className={`text-xs px-2 py-1 rounded-full ${statusConfig.bgColor} ${statusConfig.textColor}`}
+            className={`text-xs px-3 py-1 rounded-full font-medium ${statusConfig.bgColor} ${statusConfig.textColor}`}
           >
             {statusConfig.label}
           </span>
@@ -99,8 +99,8 @@ export function GameCard({ game, onClick }: GameCardProps) {
               <svg
                 key={i}
                 data-testid="star-icon"
-                className={`w-4 h-4 ${
-                  i < game.rating ? 'text-yellow-400' : 'text-gray-300'
+                className={`w-5 h-5 ${
+                  i < game.rating ? 'text-yellow-400' : 'text-switch-gray-300'
                 }`}
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -109,7 +109,7 @@ export function GameCard({ game, onClick }: GameCardProps) {
               </svg>
             ))}
           </div>
-          <span className="text-sm text-gray-600">
+          <span className="text-sm font-medium text-switch-gray-500">
             {formatPlayTime(game.playTime)}
           </span>
         </div>

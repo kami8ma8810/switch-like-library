@@ -85,7 +85,7 @@ export function GameForm({ game, onSubmit, onCancel }: GameFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {errors.length > 0 && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+        <div className="bg-red-50 border-2 border-switch-red text-switch-red px-6 py-4 rounded-2xl">
           <ul className="list-disc list-inside">
             {errors.map((error, index) => (
               <li key={index}>{error}</li>
@@ -97,30 +97,30 @@ export function GameForm({ game, onSubmit, onCancel }: GameFormProps) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* 基本情報 */}
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold">基本情報</h3>
+          <h3 className="text-xl font-bold text-switch-dark mb-2">基本情報</h3>
           
           <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
-              タイトル <span className="text-red-500">*</span>
+            <label htmlFor="title" className="block text-sm font-bold text-switch-dark mb-2">
+              タイトル <span className="text-switch-red">*</span>
             </label>
             <input
               type="text"
               id="title"
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all"
             />
           </div>
 
           <div>
-            <label htmlFor="genre" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="genre" className="block text-sm font-bold text-switch-dark mb-2">
               ジャンル
             </label>
             <select
               id="genre"
               value={formData.genre}
               onChange={(e) => setFormData({ ...formData, genre: e.target.value as Genre })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all"
             >
               {genreOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -131,7 +131,7 @@ export function GameForm({ game, onSubmit, onCancel }: GameFormProps) {
           </div>
 
           <div>
-            <label htmlFor="platform" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="platform" className="block text-sm font-bold text-switch-dark mb-2">
               プラットフォーム
             </label>
             <input
@@ -139,63 +139,63 @@ export function GameForm({ game, onSubmit, onCancel }: GameFormProps) {
               id="platform"
               value={formData.platform}
               onChange={(e) => setFormData({ ...formData, platform: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all"
             />
           </div>
 
           <div>
-            <label htmlFor="releaseDate" className="block text-sm font-medium text-gray-700 mb-1">
-              発売日 <span className="text-red-500">*</span>
+            <label htmlFor="releaseDate" className="block text-sm font-bold text-switch-dark mb-2">
+              発売日 <span className="text-switch-red">*</span>
             </label>
             <input
               type="date"
               id="releaseDate"
               value={formData.releaseDate}
               onChange={(e) => setFormData({ ...formData, releaseDate: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all"
             />
           </div>
 
           <div>
-            <label htmlFor="developer" className="block text-sm font-medium text-gray-700 mb-1">
-              開発元 <span className="text-red-500">*</span>
+            <label htmlFor="developer" className="block text-sm font-bold text-switch-dark mb-2">
+              開発元 <span className="text-switch-red">*</span>
             </label>
             <input
               type="text"
               id="developer"
               value={formData.developer}
               onChange={(e) => setFormData({ ...formData, developer: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all"
             />
           </div>
 
           <div>
-            <label htmlFor="publisher" className="block text-sm font-medium text-gray-700 mb-1">
-              発売元 <span className="text-red-500">*</span>
+            <label htmlFor="publisher" className="block text-sm font-bold text-switch-dark mb-2">
+              発売元 <span className="text-switch-red">*</span>
             </label>
             <input
               type="text"
               id="publisher"
               value={formData.publisher}
               onChange={(e) => setFormData({ ...formData, publisher: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all"
             />
           </div>
         </div>
 
         {/* プレイ情報 */}
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold">プレイ情報</h3>
+          <h3 className="text-xl font-bold text-switch-dark mb-2">プレイ情報</h3>
           
           <div>
-            <label htmlFor="playStatus" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="playStatus" className="block text-sm font-bold text-switch-dark mb-2">
               プレイ状況
             </label>
             <select
               id="playStatus"
               value={formData.playStatus}
               onChange={(e) => setFormData({ ...formData, playStatus: e.target.value as PlayStatus })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all"
             >
               {playStatusOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -206,14 +206,14 @@ export function GameForm({ game, onSubmit, onCancel }: GameFormProps) {
           </div>
 
           <div>
-            <label htmlFor="rating" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="rating" className="block text-sm font-bold text-switch-dark mb-2">
               評価
             </label>
             <select
               id="rating"
               value={formData.rating}
               onChange={(e) => setFormData({ ...formData, rating: Number(e.target.value) as 1 | 2 | 3 | 4 | 5 })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all"
             >
               {[1, 2, 3, 4, 5].map((value) => (
                 <option key={value} value={value.toString()}>
@@ -224,7 +224,7 @@ export function GameForm({ game, onSubmit, onCancel }: GameFormProps) {
           </div>
 
           <div>
-            <label htmlFor="playTime" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="playTime" className="block text-sm font-bold text-switch-dark mb-2">
               プレイ時間（分）
             </label>
             <input
@@ -233,12 +233,12 @@ export function GameForm({ game, onSubmit, onCancel }: GameFormProps) {
               min="0"
               value={formData.playTime}
               onChange={(e) => setFormData({ ...formData, playTime: Number(e.target.value) })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all"
             />
           </div>
 
           <div>
-            <label htmlFor="purchaseDate" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="purchaseDate" className="block text-sm font-bold text-switch-dark mb-2">
               購入日
             </label>
             <input
@@ -246,12 +246,12 @@ export function GameForm({ game, onSubmit, onCancel }: GameFormProps) {
               id="purchaseDate"
               value={formData.purchaseDate}
               onChange={(e) => setFormData({ ...formData, purchaseDate: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all"
             />
           </div>
 
           <div>
-            <label htmlFor="completedDate" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="completedDate" className="block text-sm font-bold text-switch-dark mb-2">
               クリア日
             </label>
             <input
@@ -259,7 +259,7 @@ export function GameForm({ game, onSubmit, onCancel }: GameFormProps) {
               id="completedDate"
               value={formData.completedDate}
               onChange={(e) => setFormData({ ...formData, completedDate: e.target.value })}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border-2 border-switch-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-switch-blue focus:border-switch-blue transition-all"
             />
           </div>
         </div>
@@ -267,10 +267,10 @@ export function GameForm({ game, onSubmit, onCancel }: GameFormProps) {
 
       {/* その他の情報 */}
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold">その他の情報</h3>
+        <h3 className="text-xl font-bold text-switch-dark mb-2">その他の情報</h3>
         
         <div>
-          <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="imageUrl" className="block text-sm font-bold text-switch-dark mb-2">
             画像URL
           </label>
           <input
@@ -283,7 +283,7 @@ export function GameForm({ game, onSubmit, onCancel }: GameFormProps) {
         </div>
 
         <div>
-          <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="description" className="block text-sm font-bold text-switch-dark mb-2">
             説明
           </label>
           <textarea
@@ -296,7 +296,7 @@ export function GameForm({ game, onSubmit, onCancel }: GameFormProps) {
         </div>
 
         <div>
-          <label htmlFor="memo" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="memo" className="block text-sm font-bold text-switch-dark mb-2">
             メモ
           </label>
           <textarea
@@ -309,7 +309,7 @@ export function GameForm({ game, onSubmit, onCancel }: GameFormProps) {
         </div>
 
         <div>
-          <label htmlFor="tags" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="tags" className="block text-sm font-bold text-switch-dark mb-2">
             タグ（カンマ区切り）
           </label>
           <input

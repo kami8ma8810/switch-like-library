@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-nintendo bg-switch-gray-100 text-switch-dark;
+  }
+}
+
+@layer components {
+  /* Switch風のカード */
+  .switch-card {
+    @apply bg-white rounded-2xl shadow-switch hover:shadow-switch-hover transition-all duration-300;
+  }
+
+  /* Switch風のボタン */
+  .switch-button {
+    @apply font-medium rounded-full transition-all duration-200 transform active:scale-95;
+  }
+
+  /* ゲームカードのアニメーション */
+  .game-card {
+    @apply transform transition-all duration-300 hover:-translate-y-1;
+  }
+}
+
+/* カスタムスクロールバー */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-switch-gray-200 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-switch-gray-400 rounded-full hover:bg-switch-gray-500;
+}

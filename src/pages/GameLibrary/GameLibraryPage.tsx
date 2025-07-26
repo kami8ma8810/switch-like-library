@@ -107,30 +107,36 @@ export function GameLibraryPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <header className="mb-8">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              ゲームライブラリ
-            </h1>
-            <p className="text-gray-600">
-              あなたのゲームコレクションを管理しましょう
-            </p>
+    <div className="min-h-screen bg-switch-gray-100">
+      <div className="container mx-auto px-4 py-8">
+        <header className="mb-10 animate-slide-up">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-4xl font-bold text-switch-dark mb-3">
+                ゲームライブラリ
+              </h1>
+              <p className="text-switch-gray-500 text-lg">
+                あなたのゲームコレクションを管理しましょう
+              </p>
+            </div>
+            <Button onClick={handleAddGame} size="large">
+              <span className="flex items-center gap-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+                ゲームを追加
+              </span>
+            </Button>
           </div>
-          <Button onClick={handleAddGame}>
-            ゲームを追加
-          </Button>
-        </div>
-      </header>
+        </header>
 
-      <main>
-        <FilterBar />
-        <GameList 
-          games={games} 
-          onGameClick={handleEditGame}
-        />
-      </main>
+        <main>
+          <FilterBar />
+          <GameList 
+            games={games} 
+            onGameClick={handleEditGame}
+          />
+        </main>
 
       <Modal
         isOpen={isFormOpen}
@@ -143,6 +149,7 @@ export function GameLibraryPage() {
           onCancel={handleFormCancel}
         />
       </Modal>
+      </div>
     </div>
   )
 }
