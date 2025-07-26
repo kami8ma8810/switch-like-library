@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useAppDispatch } from '@/app/hooks'
 import { useFilteredGames } from '@/features/games/hooks/useFilteredGames'
 import { GameList } from '@/features/games/components/GameList'
+import { FilterBar } from '@/features/filters/components/FilterBar'
 import { setGames } from '@/features/games/store/gamesSlice'
 import { storageService } from '@/features/games/services/storageService'
 import { createNewGame } from '@/features/games/utils/gameValidation'
@@ -73,6 +74,7 @@ export function GameLibraryPage() {
       </header>
 
       <main>
+        <FilterBar />
         <GameList games={games} />
       </main>
     </div>
